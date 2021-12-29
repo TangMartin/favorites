@@ -1,4 +1,4 @@
-package com.frontend;
+package org.reactjs.native.example.frontend;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "frontend";
+    return "restaurer";
   }
 }
