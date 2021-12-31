@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>704788886151-80ffeeo7e33sj8v4lsdobp51ft2vm782.apps.googleusercontent.com</string>
+	<string>508927879376-2kvg0pjiuld5u45phjtht4hkqq58394s.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.704788886151-80ffeeo7e33sj8v4lsdobp51ft2vm782</string>
+	<string>com.googleusercontent.apps.508927879376-2kvg0pjiuld5u45phjtht4hkqq58394s</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDz83nQL1URAtEa6JHrlsMuupgewnXnhdY</string>
+	<string>AIzaSyDuhgDNnRJQLb474gxtakW3TCBa8t7fdm8</string>
 	<key>GCM_SENDER_ID</key>
-	<string>704788886151</string>
+	<string>508927879376</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>org.reactjs.native.example.restaurer</string>
+	<string>org.reactjs.native.example.Favorites</string>
 	<key>PROJECT_ID</key>
-	<string>restaurer-auth-94003</string>
+	<string>favorites-auth</string>
 	<key>STORAGE_BUCKET</key>
-	<string>restaurer-auth-94003.appspot.com</string>
+	<string>favorites-auth.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:704788886151:ios:bc2c43753148e31e86fe22</string>
+	<string>1:508927879376:ios:80c41a36b3ba84109456d5</string>
 </dict>
 </plist>

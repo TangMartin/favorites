@@ -111,6 +111,7 @@ PODS:
   - GoogleUtilities/Reachability (7.6.0):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.7.0)
+  - HMSegmentedControl (1.5.6)
   - libevent (2.1.12)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
@@ -384,12 +385,23 @@ PODS:
     - React-jsi (= 0.66.4)
     - React-logger (= 0.66.4)
     - React-perflogger (= 0.66.4)
+  - ReactNativeNavigation (7.24.3):
+    - HMSegmentedControl
+    - React-Core
+    - React-RCTImage
+    - React-RCTText
+    - ReactNativeNavigation/Core (= 7.24.3)
+  - ReactNativeNavigation/Core (7.24.3):
+    - HMSegmentedControl
+    - React-Core
+    - React-RCTImage
+    - React-RCTText
   - RNCMaskedView (0.1.11):
     - React
-  - RNFBApp (14.1.0):
+  - RNFBApp (14.2.1):
     - Firebase/CoreOnly (= 8.10.0)
     - React-Core
-  - RNFBAuth (14.1.0):
+  - RNFBAuth (14.2.1):
     - Firebase/Auth (= 8.10.0)
     - React-Core
     - RNFBApp
@@ -484,6 +496,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - ReactNativeNavigation (from `../node_modules/react-native-navigation`)
   - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBAuth (from `../node_modules/@react-native-firebase/auth`)"
@@ -512,6 +525,7 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleUtilities
     - GTMSessionFetcher
+    - HMSegmentedControl
     - libevent
     - nanopb
     - OpenSSL-Universal
@@ -579,6 +593,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/runtimeexecutor"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  ReactNativeNavigation:
+    :path: "../node_modules/react-native-navigation"
   RNCMaskedView:
     :path: "../node_modules/@react-native-community/masked-view"
   RNFBApp:
@@ -618,6 +634,7 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GoogleUtilities: 684ee790a24f73ebb2d1d966e9711c203f2a4237
   GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
+  HMSegmentedControl: 34c1f54d822d8308e7b24f5d901ec674dfa31352
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   OpenSSL-Universal: 1aa4f6a6ee7256b83db99ec1ccdaa80d10f9af9b
@@ -647,15 +664,16 @@ SPEC CHECKSUMS:
   React-RCTVibration: e3ffca672dd3772536cb844274094b0e2c31b187
   React-runtimeexecutor: dec32ee6f2e2a26e13e58152271535fadff5455a
   ReactCommon: 57b69f6383eafcbd7da625bfa6003810332313c4
+  ReactNativeNavigation: e16d74494fbac09d9ff9681b8089a20fad593aeb
   RNCMaskedView: 0e1bc4bfa8365eba5fbbb71e07fbdc0555249489
-  RNFBApp: e884e9a2dcc5edfa73e2651ef6638df5e0672f89
-  RNFBAuth: fd6cbf93302641dbe20045a44e64c1fa3d4eff02
+  RNFBApp: 4f490a1e02e41721c55b354019f39f2323d72f82
+  RNFBAuth: 8a2d139824431757f1a6b71a8d086cb104e56a0d
   RNGestureHandler: e5c7cab5f214503dcefd6b2b0cefb050e1f51c4a
   RNReanimated: da3860204e5660c0dd66739936732197d359d753
   RNScreens: 522705f2e5c9d27efb17f24aceb2bf8335bc7b8e
   Yoga: e7dc4e71caba6472ff48ad7d234389b91dadc280
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: b56e54f7714d72bbb922da4a578418c59730d42a
+PODFILE CHECKSUM: 2008a36eb23e6781d370a6f8ada23d588148320a
 
 COCOAPODS: 1.11.2
