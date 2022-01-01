@@ -50,18 +50,15 @@ const LoginScreen = () => {
                 />
             </View>
 
-            <View style={loginStyles.buttonContainer}
-            >
+            <View style={loginStyles.buttonContainer}>
                 <TouchableOpacity
                     style={[loginStyles.button, loginStyles.buttonOutline]}
-                    onPress = {handlelogin} 
-                >
+                    onPress = {handlelogin} >
                     <Text style={loginStyles.buttonText}> Log In </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={[loginStyles.button, loginStyles.buttonOutline]}
-                    onPress = {handlesignup} 
-                >
+                    onPress = {handlesignup}>
                     <Text style={loginStyles.buttonText}> Register </Text>
                 </TouchableOpacity>
             </View>
