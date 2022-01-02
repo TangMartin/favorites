@@ -9,7 +9,6 @@ export default StyleSheet.create(
         justifyContent: 'space-between',
         width: '100%',
         alignItems: 'center',
-        flex:0,
     },
     shadow: {
         shadowColor: 'black',
