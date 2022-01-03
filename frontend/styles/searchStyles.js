@@ -1,3 +1,4 @@
+import { Row } from 'native-base';
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
@@ -20,9 +21,22 @@ export default StyleSheet.create({
         flex: 1,
       },
       mainContainer: {
-          width: "90%",
-          backgroundColor: "beige",
-          justifyContent: "center",
-          alignItems: 'center',
+        width: "100%",
+        paddingHorizontal:'6%',
+      },
+      headerimage: {
+        width:'100%',
+        height: '60%',
+        marginVertical: '4%',
+        marginBottom: '6%',
+      },
+      headertitle: {
+        fontSize: 26,
+        fontWeight: 'bold',
+      },
+      typeandreview: {
+          flexDirection: 'row',
+          marginTop: 13,
+          marginLeft: 2,
       }
 });

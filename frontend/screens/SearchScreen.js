@@ -31,19 +31,16 @@ const SearchScreen = () => {
     function datapage() {
         return (
             <View style={searchStyles.mainContainer}>
-                <Text>
-                    {LocData.reference}               
-                </Text>
                 <Image
-                    source={require('../assets/images/search.png')}
+                    source={{uri: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=400&photoreference=${LocData.photos[0].photo_reference}&key=AIzaSyAoqlQ1Mipy61k3DhUoX6B5AikDWmS-3lI`}}
                     resizeMode="cover"
                     borderRadius={20}
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                        justifyContent: 'flex-end',
-                }}/>
-                <Button title="Close Sheet" onPress={handleClosePress} />
+                    style={searchStyles.headerimage}/>
+                <Text style={searchStyles.headertitle}> {LocData.name} </Text>
+                <View style={searchStyles.typeandreview}> 
+                    <Text> {LocData.types[0]} & {LocData.types[1]} </Text>
+                    <Text> {LocData.rating} </Text>
+                </View>
             </View>
         );
     }
