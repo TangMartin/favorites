@@ -123,12 +123,12 @@ export default function App ({ navigation }) {
               <Drawer.Screen name="Main"  
                 options={({ navigation }) => ({
                     headerStyle: {
-                      backgroundColor: '#f4511e',
+                      backgroundColor: '#FFFFFF',
                     },
                     headerLeft: () => (
                       <TouchableOpacity 
                         style ={{
-                            marginLeft: "12%",}}
+                            marginLeft: "14%",}}
                         onPress={() => {navigation.toggleDrawer()}}>
                         <Image
                             source={require('./assets/images/more.png')}
@@ -144,7 +144,7 @@ export default function App ({ navigation }) {
                     headerRight: () => (
                       <TouchableOpacity
                         style ={{
-                            marginRight: "12%",
+                            marginRight: "14%",
                         }}
                         onPress={() => {navigation.navigate('Search')}}>
                         <Image

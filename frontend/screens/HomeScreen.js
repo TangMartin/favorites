@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React, { useState, Component } from 'react'
 import { useNavigation } from '@react-navigation/core'
 import {  KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Image,} from 'react-native'
 import { Icon, Button, Container, Header, Content, Left } from 'native-base'
@@ -11,20 +11,53 @@ import homeStyles from '../styles/homeStyles'
 
 import auth from '@react-native-firebase/auth' 
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps"
+import mapStyle from '../components/mapStyle.json'
+import Geolocation from '@react-native-community/geolocation';
+import GetLocation from 'react-native-get-location'
 
 
-export default function HomeScreen ({navigation}) {
+export default class HomeScreen extends Component {
 
-    const user = auth().currentUser;
+    state = {
+        regionSet: false,
+        latitudeDelta: 100,
+        longitudeDelta: 5
+      }
+      
+      componentDidMount() {
+        Geolocation.getCurrentPosition(position => {
+            const { latitude, longitude } = position.coords
+            const region = {
+              ...this.state.region,
+              latitude,
+              longitude,
+              latitudeDelta: 0.01,
+              longitudeDelta: 0.01,
+            }
+            this.setState({ region, regionSet: true })
+          })
+      }
+      
+      onRegionChange = (region) => {
+        if (!this.state.regionSet) return;
+        this.setState({
+          region
+        });
+      }
 
-    const handlesignout = () => {
-        auth()
-            .signOut()
+    render() {
 
-            .catch(error => alert(error.message))
+        return (
+            <MapView 
+                style={{flex: 1}} 
+                provider={PROVIDER_GOOGLE} 
+                customMapStyle={mapStyle}
+                zoomEnabled={true}
+                showsUserLocation
+                followsUserLocation={true}
+                showsMyLocationButton={true}
+                initialRegion={this.state.region}
+            />
+        )
     }
-
-    return (
-        <MapView style={{flex: 1}} provider={PROVIDER_GOOGLE} />
-    )
 }

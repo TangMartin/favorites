@@ -1230,6 +1230,11 @@
   "resolved" "https://registry.npmjs.org/@react-native-community/eslint-plugin/-/eslint-plugin-1.1.0.tgz"
   "version" "1.1.0"
 
+"@react-native-community/geolocation@^2.0.2":
+  "integrity" "sha512-tTNXRCgnhJBu79mulQwzabXRpDqfh/uaDqfHVpvF0nX4NTpolpy6mvTRiFg7eWFPGRArsnZz1EYp6rHfJWGgEA=="
+  "resolved" "https://registry.npmjs.org/@react-native-community/geolocation/-/geolocation-2.0.2.tgz"
+  "version" "2.0.2"
+
 "@react-native-community/masked-view@^0.1.11":
   "integrity" "sha512-rQfMIGSR/1r/SyN87+VD8xHHzDYeHaJq6elOSCAD+0iLagXkSI2pfA0LmSXP21uw5i3em7GkkRjfJ8wpqWXZNw=="
   "resolved" "https://registry.npmjs.org/@react-native-community/masked-view/-/masked-view-0.1.11.tgz"
@@ -5983,6 +5988,11 @@
   dependencies:
     "lodash" "^4.17.15"
 
+"react-native-geolocation-service@^5.3.0-beta.4":
+  "integrity" "sha512-8Z/FP1ls02fnvqXCII+dDS329lP3UigNR4eIHUjPQdHu/DRGMRCpJJuj05hcq37UJL/zVVsXnPFdLA9lCOWYCQ=="
+  "resolved" "https://registry.npmjs.org/react-native-geolocation-service/-/react-native-geolocation-service-5.3.0-beta.4.tgz"
+  "version" "5.3.0-beta.4"
+
 "react-native-gesture-handler@^2.1.0", "react-native-gesture-handler@>= 1.0.0":
   "integrity" "sha512-vF4yEUrV5GMBioTkvf5Le1l3N/52dSLBnNMFC+kZ4hssnRoXB0hEQ0ReUkZckRB5L3nbHBhAyjySEtFPx4nyEA=="
   "resolved" "https://registry.npmjs.org/react-native-gesture-handler/-/react-native-gesture-handler-2.1.0.tgz"
@@ -5993,6 +6003,11 @@
     "invariant" "^2.2.4"
     "lodash" "^4.17.21"
     "prop-types" "^15.7.2"
+
+"react-native-get-location@^2.2.1":
+  "integrity" "sha512-ff1CSsKZgmIcvMt1SefLJM8cV212iYYphZOoG2k0UAp+8egXe1jIs5N2NBHriAgq3Ze9WSCLGqfjXOAVvQuF2A=="
+  "resolved" "https://registry.npmjs.org/react-native-get-location/-/react-native-get-location-2.2.1.tgz"
+  "version" "2.2.1"
 
 "react-native-ionicons@^4.6.5":
   "integrity" "sha512-s2Ia7M5t609LE9LWygMj3ALVPUlKhK7R9XcMb67fP4EYJv0oLcwg5pc+8ftv9XXaUuTW/WgL3zJlBYxAvtvMJg=="
@@ -6069,7 +6084,7 @@
     "normalize-css-color" "^1.0.2"
     "prop-types" "^15.6.0"
 
-"react-native@*", "react-native@>= 0.51", "react-native@>=0.38.0", "react-native@>=0.42.0", "react-native@>=0.43.0", "react-native@>=0.56.0", "react-native@>=0.57", "react-native@>=0.63.0", "react-native@0.66.4":
+"react-native@*", "react-native@>= 0.51", "react-native@>=0.38.0", "react-native@>=0.42.0", "react-native@>=0.43.0", "react-native@>=0.56.0", "react-native@>=0.57", "react-native@>=0.60", "react-native@>=0.63.0", "react-native@0.66.4":
   "integrity" "sha512-9vx5dlSfQlKbbDtr8+xMon6qsmSu7jvjdXWZpEKh3XVKpUidbbODv7048gwVKX8YAel1egeR7hN8vzSeI6ssTw=="
   "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.66.4.tgz"
   "version" "0.66.4"
