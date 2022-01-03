@@ -19,4 +19,10 @@ export default StyleSheet.create({
         color: '#000000',
         flex: 1,
       },
+      mainContainer: {
+          width: "90%",
+          backgroundColor: "beige",
+          justifyContent: "center",
+          alignItems: 'center',
+      }
 });
