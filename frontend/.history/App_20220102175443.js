@@ -55,7 +55,30 @@ function SearchScreens() {
       screenOptions={{
         headerShown: false,
       }}>
-      <SearchStack.Screen name="Search" component={SearchScreen} />
+      <SearchStack.Screen name="Search" 
+        options={({ navigation }) => ({
+                    headerStyle: {
+                      backgroundColor: '#FFFFFF',
+                    },
+                    headerLeft: () => (
+                      <TouchableOpacity 
+                        style ={{
+                            marginLeft: "14%",}}
+                        onPress={() => {navigation.pop()}}>
+                        <Image
+                            source={require('./assets/images/more.png')}
+                            style={{
+                                height: 20,
+                                width: 20,
+                                resizeMode: 'contain',
+                            }}
+                        />
+                      </TouchableOpacity>
+                    ),
+                    headerTitle: () => ( <Text style = {{fontSize: 18}}> Favorites </Text> ),
+                    })
+                }
+                component={SearchScreen} />
     </SearchStack.Navigator>
   );
 }
@@ -123,10 +146,6 @@ export default function App ({ navigation }) {
               <Drawer.Screen name="Main"  
                 options={({ navigation }) => ({
                     headerStyle: {
-                      shadowOpacity:60,
-                      shadowOffset:{height:6},
-                      shadowRadius:4,
-                      backgroundColor: '#FFFFFF',
                       backgroundColor: '#FFFFFF',
                     },
                     headerLeft: () => (
@@ -163,35 +182,7 @@ export default function App ({ navigation }) {
                     ),
                   })}
                 component={MainStackScreen} />
-              <Drawer.Screen name="Search"        
-                  options={({ navigation }) => ({
-                    headerStyle: {
-                      shadowOpacity:60,
-                      shadowOffset:{height:6},
-                      shadowRadius:4,
-                      backgroundColor: '#FFFFFF',
-                    },
-                    headerLeft: () => (
-                      <TouchableOpacity 
-                        style ={{
-                            marginLeft: "14%",}}
-                        onPress={() => {navigation.navigate('Main')}}>
-                        <Image
-                            source={require('./assets/images/back.png')}
-                            style={{
-                                height: 20,
-                                width: 20,
-                                resizeMode: 'contain',
-                            }}
-                        />
-                      </TouchableOpacity>
-                    ),
-                    headerTitle: () => ( <Text style = {{fontSize: 18}}> Search </Text> ),
-                    })
-                  }
-                  component = {SearchScreens}/>
-              <Drawer.Screen name="Setting" component = {SettingScreens}/>
-              <Drawer.Screen name="Favourites" component = {FavouriteScreens}/>
+              <Drawer.Screen name="Search" component = {SearchScreens} />
             </Drawer.Navigator>
         </NavigationContainer>
 

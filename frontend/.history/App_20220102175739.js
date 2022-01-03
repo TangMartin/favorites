@@ -123,10 +123,6 @@ export default function App ({ navigation }) {
               <Drawer.Screen name="Main"  
                 options={({ navigation }) => ({
                     headerStyle: {
-                      shadowOpacity:60,
-                      shadowOffset:{height:6},
-                      shadowRadius:4,
-                      backgroundColor: '#FFFFFF',
                       backgroundColor: '#FFFFFF',
                     },
                     headerLeft: () => (
@@ -166,18 +162,15 @@ export default function App ({ navigation }) {
               <Drawer.Screen name="Search"        
                   options={({ navigation }) => ({
                     headerStyle: {
-                      shadowOpacity:60,
-                      shadowOffset:{height:6},
-                      shadowRadius:4,
                       backgroundColor: '#FFFFFF',
                     },
                     headerLeft: () => (
                       <TouchableOpacity 
                         style ={{
                             marginLeft: "14%",}}
-                        onPress={() => {navigation.navigate('Main')}}>
+                        onPress={() => {navigation.pop()}}>
                         <Image
-                            source={require('./assets/images/back.png')}
+                            source={require('./assets/images/more.png')}
                             style={{
                                 height: 20,
                                 width: 20,
@@ -186,7 +179,7 @@ export default function App ({ navigation }) {
                         />
                       </TouchableOpacity>
                     ),
-                    headerTitle: () => ( <Text style = {{fontSize: 18}}> Search </Text> ),
+                    headerTitle: () => ( <Text style = {{fontSize: 18}}> Favorites </Text> ),
                     })
                   }
                   component = {SearchScreens}/>

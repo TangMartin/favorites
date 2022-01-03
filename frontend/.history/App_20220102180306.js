@@ -123,10 +123,6 @@ export default function App ({ navigation }) {
               <Drawer.Screen name="Main"  
                 options={({ navigation }) => ({
                     headerStyle: {
-                      shadowOpacity:60,
-                      shadowOffset:{height:6},
-                      shadowRadius:4,
-                      backgroundColor: '#FFFFFF',
                       backgroundColor: '#FFFFFF',
                     },
                     headerLeft: () => (
@@ -166,7 +162,7 @@ export default function App ({ navigation }) {
               <Drawer.Screen name="Search"        
                   options={({ navigation }) => ({
                     headerStyle: {
-                      shadowOpacity:60,
+                      shadowOpacity:100,
                       shadowOffset:{height:6},
                       shadowRadius:4,
                       backgroundColor: '#FFFFFF',

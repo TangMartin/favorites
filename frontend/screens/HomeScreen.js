@@ -20,8 +20,6 @@ export default class HomeScreen extends Component {
 
     state = {
         regionSet: false,
-        latitudeDelta: 100,
-        longitudeDelta: 5
       }
       
       componentDidMount() {
@@ -31,8 +29,8 @@ export default class HomeScreen extends Component {
               ...this.state.region,
               latitude,
               longitude,
-              latitudeDelta: 0.01,
-              longitudeDelta: 0.01,
+              latitudeDelta: 0.008,
+              longitudeDelta: 0.008,
             }
             this.setState({ region, regionSet: true })
           })
