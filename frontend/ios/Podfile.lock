@@ -416,6 +416,8 @@ PODS:
     - React-jsi (= 0.66.4)
     - React-logger (= 0.66.4)
     - React-perflogger (= 0.66.4)
+  - ReactNativeGetLocation (2.2.1):
+    - React-Core
   - ReactNativeNavigation (7.24.3):
     - HMSegmentedControl
     - React-Core
@@ -507,6 +509,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - ReactNativeGetLocation (from `../node_modules/react-native-get-location`)
   - ReactNativeNavigation (from `../node_modules/react-native-navigation`)
   - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
@@ -614,6 +617,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/runtimeexecutor"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  ReactNativeGetLocation:
+    :path: "../node_modules/react-native-get-location"
   ReactNativeNavigation:
     :path: "../node_modules/react-native-navigation"
   RNCMaskedView:
@@ -691,6 +696,7 @@ SPEC CHECKSUMS:
   React-RCTVibration: e3ffca672dd3772536cb844274094b0e2c31b187
   React-runtimeexecutor: dec32ee6f2e2a26e13e58152271535fadff5455a
   ReactCommon: 57b69f6383eafcbd7da625bfa6003810332313c4
+  ReactNativeGetLocation: d6b15cb2a2023ab7703f756501bad86d3ecf6fea
   ReactNativeNavigation: e16d74494fbac09d9ff9681b8089a20fad593aeb
   RNCMaskedView: 0e1bc4bfa8365eba5fbbb71e07fbdc0555249489
   RNFBApp: 4f490a1e02e41721c55b354019f39f2323d72f82
@@ -701,6 +707,6 @@ SPEC CHECKSUMS:
   Yoga: e7dc4e71caba6472ff48ad7d234389b91dadc280
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 2e7807fdff91cf31aca460476a8f5b3c8baf9719
+PODFILE CHECKSUM: 7216bf45bb346f3b15a93fec1ba8b04890ebf7ef
 
 COCOAPODS: 1.11.2
