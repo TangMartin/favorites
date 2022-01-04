@@ -23,10 +23,11 @@ export default StyleSheet.create({
       mainContainer: {
         width: "100%",
         paddingHorizontal:'6%',
+
       },
       headerimage: {
         width:'100%',
-        height: '60%',
+        height: '65%',
         marginVertical: '4%',
         marginBottom: '6%',
       },
@@ -36,7 +37,13 @@ export default StyleSheet.create({
       },
       typeandreview: {
           flexDirection: 'row',
-          marginTop: 13,
+          paddingTop: 10,
           marginLeft: 2,
+          width: '80%',
+      },
+      type: {
+        fontSize: 16,
+        marginRight: 4,
+
       }
 });

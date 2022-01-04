@@ -1,16 +1,15 @@
 import React, {useCallback, useMemo, useRef, useState} from 'react'
-import { StyleSheet, Text, View, FlatList, Image, Button} from 'react-native'
+import { ScrollView, StyleSheet, Text, View, FlatList, Image, Button, Linking} from 'react-native'
 import { SafeAreaView,  KeyboardAwareScrollView } from 'react-native-safe-area-context'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
 
-import BottomSheet from '@gorhom/bottom-sheet';
 import searchStyles from '../styles/searchStyles'
 
-import {
-    BottomSheetModal,
-    BottomSheetModalProvider,
-  } from '@gorhom/bottom-sheet';
+import StarRating from 'react-native-star-rating'
+
+import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet"
 import { render } from 'react-native/Libraries/Renderer/implementations/ReactNativeRenderer-prod';
+import { TouchableOpacity } from 'react-native-gesture-handler'
 
 
 const SearchScreen = () => {
@@ -28,20 +27,109 @@ const SearchScreen = () => {
 
     const handleClosePress = () => bottomSheetRef.current.snapTo(1);
 
+    const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+    const d = new Date();
+
+    function Capitalize(str){
+        str = str.charAt(0).toUpperCase() + str.slice(1);
+        str = str.replaceAll('_', ' ');
+        var str = str.toLowerCase().replace(/(^\w{1})|(\s{1}\w{1})/g, match => match.toUpperCase());
+
+        return str;
+    }
+
     function datapage() {
         return (
-            <View style={searchStyles.mainContainer}>
+            <ScrollView style={searchStyles.mainContainer}>
                 <Image
                     source={{uri: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=400&photoreference=${LocData.photos[0].photo_reference}&key=AIzaSyAoqlQ1Mipy61k3DhUoX6B5AikDWmS-3lI`}}
                     resizeMode="cover"
                     borderRadius={20}
-                    style={searchStyles.headerimage}/>
-                <Text style={searchStyles.headertitle}> {LocData.name} </Text>
+                    style={searchStyles.headerimage}
+                />
+                <Text style={searchStyles.headertitle}>{LocData.name}</Text>
                 <View style={searchStyles.typeandreview}> 
-                    <Text> {LocData.types[0]} & {LocData.types[1]} </Text>
-                    <Text> {LocData.rating} </Text>
+                    <Text style={searchStyles.type}>{Capitalize(LocData.types[0])}</Text>
+                        <View style={{flexDirection: 'row', paddingTop: 2, paddingLeft:5,}}>
+                            <StarRating
+                                disabled={true}
+                                maxStars={5}
+                                rating={LocData.rating}
+                                starSize={16}
+                                starStyle={{
+                                    paddingHorizontal: 1,
+                                }}
+                            />
+                            <Text style={{marginLeft: 5,}}> {LocData.rating}</Text>
+                        </View>
                 </View>
-            </View>
+                <View style={{flexDirection: 'row', paddingTop: 20, width: '90%'}}>
+                    <Image
+                        source={require('../assets/images/location.png')}
+                        style={{
+                            marginRight:10,
+                            height: 20,
+                            width: 20,
+                            resizeMode: 'contain',
+                        }}
+                    />
+                    <Text>{LocData.formatted_address}</Text>
+                </View>
+                <View style={{flexDirection: 'row', paddingTop: 15}}>
+                    <Image
+                        source={require('../assets/images/hours.png')}
+                        style={{
+                            marginRight:10,
+                            height: 20,
+                            width: 20,
+                            resizeMode: 'contain',
+                        }}
+                    />
+                    <Text>{LocData.opening_hours.weekday_text[d.getDay() - 1]}</Text>
+                </View>
+                <View style={{flexDirection: 'row-reverse', paddingTop: 20, paddingLeft: 5, paddingRight: 10, alignItems:'flex-end'}}>
+                    <TouchableOpacity
+                        style={{
+                            backgroundColor: '#989898',
+                            width: '180%',
+                            alignSelf: 'center',
+                            height: 50,
+                            width: 50,
+                            borderRadius: 45,
+                            justifyContent: 'center',
+                            marginLeft: 20,
+                        }}>
+                        <Image
+                            source={require('../assets/images/googlemaps.png')}
+                            style= {{
+                                height: 20,
+                                width: 20,
+                                alignSelf: 'center',
+                            }}
+                        />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{
+                        backgroundColor: '#989898',
+                        width: '120%',
+                        alignSelf: 'center',
+                        height: 50,
+                        borderRadius: 29,
+                        justifyContent: 'center',
+                        
+                  }}>
+                  <Text
+                    style={{
+                      color: 'white',
+                      alignSelf: 'center',
+                      fontSize: 16,
+                      fontWeight: '700',
+                    }}>
+                    Add to Favorites
+                  </Text>
+                </TouchableOpacity>
+                </View>
+            </ScrollView>
         );
     }
 
