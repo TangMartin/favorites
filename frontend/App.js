@@ -14,6 +14,7 @@ import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 import SearchScreen from './screens/SearchScreen';
 import SettingsScreen from './screens/SettingsScreen';
+import FavoriteScreen from './screens/FavoriteScreen';
 
 import RestaurantsScreen from './screens/RestaurantsScreen'
 import { DrawerContent } from './screens/DrawerContent';
@@ -39,14 +40,14 @@ function SettingScreens() {
 }
 
 const FavouriteStack = createNativeStackNavigator();
-function FavouriteScreens() {
+function FavoriteScreens() {
   return (
     <FavouriteStack.Navigator
-      initialRouteName="Favourite"
+      initialRouteName="Favorite"
       screenOptions={{
         headerShown: false,
       }}>
-      <FavouriteStack.Screen name="Favourite" component={Favourite} />
+      <FavouriteStack.Screen name="Favorite" component={FavoriteScreen} />
     </FavouriteStack.Navigator>
   );
 }
@@ -85,7 +86,7 @@ const MainStackScreen = () => (
         />
       ),}} component={HomeScreen}/>
     <MainStack.Screen name="Setting" component = {SettingScreens}/>
-    <MainStack.Screen name="Favourites" component = {FavouriteScreens}/>
+    <MainStack.Screen name="Favourites" component = {FavoriteScreens}/>
   </MainStack.Navigator>
 )
 
@@ -195,7 +196,7 @@ export default function App ({ navigation }) {
                   }
                   component = {SearchScreens}/>
               <Drawer.Screen name="Setting" component = {SettingScreens}/>
-              <Drawer.Screen name="Favourites" component = {FavouriteScreens}/>
+              <Drawer.Screen name="Favorites" component = {FavoriteScreens}/>
             </Drawer.Navigator>
         </NavigationContainer>
 

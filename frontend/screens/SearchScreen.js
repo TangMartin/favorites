@@ -1,7 +1,9 @@
 import React, {useCallback, useMemo, useRef, useState} from 'react'
-import { ScrollView, StyleSheet, Text, View, FlatList, Image, Button, Linking, TouchableOpacity} from 'react-native'
+import { StyleSheet, Text, View, FlatList, Image, Button, Linking, TouchableOpacity} from 'react-native'
 import { SafeAreaView,  KeyboardAwareScrollView } from 'react-native-safe-area-context'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
+
+import { ScrollView } from 'react-native-gesture-handler'
 
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
@@ -46,7 +48,11 @@ const SearchScreen = () => {
         return (
             <ScrollView style={searchStyles.mainContainer}>
                 <Image
-                    source={{uri: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=400&photoreference=${LocData.photos[0].photo_reference}&key=AIzaSyAoqlQ1Mipy61k3DhUoX6B5AikDWmS-3lI`}}
+                    source={ 
+                    typeof(LocData.photos) !== "undefined"
+                    ? {uri: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=400&photoreference=${LocData.photos[0].photo_reference}&key=AIzaSyAoqlQ1Mipy61k3DhUoX6B5AikDWmS-3lI`}
+                    : require('../assets/images/placeholder.png')
+                    }
                     resizeMode="cover"
                     borderRadius={20}
                     style={searchStyles.headerimage}
@@ -89,7 +95,7 @@ const SearchScreen = () => {
                             resizeMode: 'contain',
                         }}
                     />
-                    <Text>{LocData?.opening_hours.weekday_text[d.getDay() - 1]}</Text>
+                    <Text>{typeof(LocData.opening_hours) !== "undefined" ? LocData?.opening_hours.weekday_text[d.getDay() - 1] :'No Hours'}</Text>
                 </View>
                 <View style={{flexDirection: 'row-reverse', paddingTop: 20, paddingLeft: 5, paddingRight: 10, alignItems:'flex-end'}}>
                     <TouchableOpacity
@@ -189,8 +195,8 @@ const SearchScreen = () => {
                 />
                 <BottomSheet
                     ref={bottomSheetRef}
-                    snapPoints={['15%', '58%']}
-                    index = {1}
+                    snapPoints={['60%', '80%']}
+                    index = {0}
                     onChange={handleSheetChanges}
                 >
                     {page === 'None' && nonepage()} 

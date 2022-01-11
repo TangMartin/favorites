@@ -1,5 +1,6 @@
 import { Row } from 'native-base';
 import {StyleSheet} from 'react-native';
+import { greaterThan } from 'react-native-reanimated';
 
 export default StyleSheet.create({
     container: {
@@ -22,14 +23,14 @@ export default StyleSheet.create({
       },
       mainContainer: {
         width: "100%",
+        height: '100%',
         paddingHorizontal:'6%',
-
       },
       headerimage: {
         width:'100%',
         height: '65%',
         marginVertical: '4%',
-        marginBottom: '6%',
+
       },
       headertitle: {
         fontSize: 26,
