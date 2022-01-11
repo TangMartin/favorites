@@ -1,7 +1,7 @@
 import React, { useState, Component, useEffect} from 'react'
 import { useNavigation } from '@react-navigation/core'
-import {  KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ShadowPropTypesIOS, Button} from 'react-native'
-import { Icon, Container, Header, Content, Left } from 'native-base'
+import {  KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ShadowPropTypesIOS,} from 'react-native'
+import { Icon, Button, Container, Header, Content, Left } from 'native-base'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useIsFocused } from '@react-navigation/native';
 
@@ -69,32 +69,14 @@ export default class HomeScreen extends Component {
 
 
 
-    render = ( ) => {
+    render( ) {
 
-      userData = async () => {
-        const user = auth().currentUser;
-        var userRef = firestore().collection('favoritelist').doc(user.uid).collection(user.uid);
-        
-        const markers = [];
-            await firestore().collection('favoritelist').doc(user.uid).collection(user.uid).get()
-              .then(querySnapshot => {
-                querySnapshot.docs.forEach(doc => {
-                markers.push(doc.data());
-              });});
-              this.setState({markers});
-              
-              //console.log(this.state.markers)
-              //console.log(this.state.markers[0].lat) 
-              
-        };
-
-        console.log(this.state)
+      const { isFocused } = this.props;
 
         return (
-          <View style={{ flex: 1 }}>
             <MapView
+                key={isFocused}
                 style={{flex: 1}} 
-                key={this.state.forceRefresh}
                 provider={PROVIDER_GOOGLE} 
                 customMapStyle={mapStyle}
                 zoomEnabled={true}
@@ -102,29 +84,18 @@ export default class HomeScreen extends Component {
                 followsUserLocation={true}
                 showsMyLocationButton={true}
                 initialRegion={this.state.region}
+                isFocused={isFocused}
             >
-              {this.state.markers?.map((marker, index) => (
-                <Marker
-                  key={index}
-                  coordinate={{latitude : marker.lat, longitude : marker.lng}}
-                  title={marker.locationname}
-                />
+            {this.state.markers?.map((marker, index) => (
+              console.log(useIsFocused()),
+              <Marker
+                key={index}
+                coordinate={{latitude : marker.lat, longitude : marker.lng}}
+                title={marker.locationname}
+              />
 
-              ))}
+            ))}
             </MapView>
-            <View
-                style={{
-                    position: 'absolute',//use absolute position to show button on top of the map
-                    top: '85%', //for center align
-                    alignSelf: 'center' //for align to right
-                }}
-            >
-            <Button 
-              onPress={() => userData()}
-              title="Reload"
-            />
-        </View>
-        </View>
         )
         
     }

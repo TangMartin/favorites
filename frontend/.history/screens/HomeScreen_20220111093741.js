@@ -69,32 +69,14 @@ export default class HomeScreen extends Component {
 
 
 
-    render = ( ) => {
+    render( ) {
 
-      userData = async () => {
-        const user = auth().currentUser;
-        var userRef = firestore().collection('favoritelist').doc(user.uid).collection(user.uid);
-        
-        const markers = [];
-            await firestore().collection('favoritelist').doc(user.uid).collection(user.uid).get()
-              .then(querySnapshot => {
-                querySnapshot.docs.forEach(doc => {
-                markers.push(doc.data());
-              });});
-              this.setState({markers});
-              
-              //console.log(this.state.markers)
-              //console.log(this.state.markers[0].lat) 
-              
-        };
-
-        console.log(this.state)
+      
 
         return (
           <View style={{ flex: 1 }}>
             <MapView
                 style={{flex: 1}} 
-                key={this.state.forceRefresh}
                 provider={PROVIDER_GOOGLE} 
                 customMapStyle={mapStyle}
                 zoomEnabled={true}
@@ -115,13 +97,12 @@ export default class HomeScreen extends Component {
             <View
                 style={{
                     position: 'absolute',//use absolute position to show button on top of the map
-                    top: '85%', //for center align
+                    top: '50%', //for center align
                     alignSelf: 'center' //for align to right
                 }}
             >
             <Button 
-              onPress={() => userData()}
-              title="Reload"
+              title="Learn More"
             />
         </View>
         </View>

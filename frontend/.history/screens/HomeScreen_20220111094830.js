@@ -88,7 +88,7 @@ export default class HomeScreen extends Component {
               
         };
 
-        console.log(this.state)
+        console.log(this.state.markers)
 
         return (
           <View style={{ flex: 1 }}>
