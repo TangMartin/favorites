@@ -1,6 +1,6 @@
 import React, { useState, Component, useEffect} from 'react'
 import { useNavigation } from '@react-navigation/core'
-import {  KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ShadowPropTypesIOS, Button, FlatList} from 'react-native'
+import {  KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ShadowPropTypesIOS, Button} from 'react-native'
 import { Icon, Container, Header, Content, Left } from 'native-base'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useIsFocused } from '@react-navigation/native';
@@ -10,14 +10,10 @@ import { NavigationEvents } from "react-navigation";
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 
+const [data, SetData] = useState({})
 
+const FavoriteScreen = () => {
 
-
-export default function FavoriteScreen () {
-
-    const [data, SetData] = useState()
-
-    userData = async () => {
         const user = auth().currentUser;
         var userRef = firestore().collection('favoritelist').doc(user.uid).collection(user.uid);
         
@@ -27,25 +23,18 @@ export default function FavoriteScreen () {
                 querySnapshot.docs.forEach(doc => {
                 markers.push(doc.data());
               });});
-              SetData({markers});         
-    };
-
-    //userData()
+              SetData({markers});
+              
+              //console.log(this.state.markers)
+              //console.log(this.state.markers[0].lat) 
 
     return (
-        <SafeAreaView>
-            <FlatList
-                data={data.markers}
-                renderItem={({item, index}) => {
-                    return(
-                        <Text>
-                            {item.locationname}
-                        </Text>
-                    );
-                }
-                }
-                keyExtractor={item => item.id}
-            />
-        </SafeAreaView>
+        <View>
+            <Text>Hello</Text>
+        </View>
     )
 }
+
+export default FavoriteScreen
+
+const styles = StyleSheet.create({})

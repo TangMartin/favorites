@@ -1,6 +1,6 @@
 import React, { useState, Component, useEffect} from 'react'
 import { useNavigation } from '@react-navigation/core'
-import {  KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ShadowPropTypesIOS, Button, FlatList} from 'react-native'
+import {  KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ShadowPropTypesIOS, Button} from 'react-native'
 import { Icon, Container, Header, Content, Left } from 'native-base'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useIsFocused } from '@react-navigation/native';
@@ -16,6 +16,7 @@ import auth from '@react-native-firebase/auth';
 export default function FavoriteScreen () {
 
     const [data, SetData] = useState()
+    const user = auth().currentUser;
 
     userData = async () => {
         const user = auth().currentUser;
@@ -30,22 +31,11 @@ export default function FavoriteScreen () {
               SetData({markers});         
     };
 
-    //userData()
+    console.log(state.markers?.[0])
 
     return (
-        <SafeAreaView>
-            <FlatList
-                data={data.markers}
-                renderItem={({item, index}) => {
-                    return(
-                        <Text>
-                            {item.locationname}
-                        </Text>
-                    );
-                }
-                }
-                keyExtractor={item => item.id}
-            />
-        </SafeAreaView>
+        <View>
+            <Text></Text>
+        </View>
     )
 }

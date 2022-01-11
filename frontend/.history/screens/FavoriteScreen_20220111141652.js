@@ -37,6 +37,7 @@ export default function FavoriteScreen () {
             <FlatList
                 data={data.markers}
                 renderItem={({item, index}) => {
+                    console.log(item.markers)
                     return(
                         <Text>
                             {item.locationname}

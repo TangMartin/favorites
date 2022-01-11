@@ -30,16 +30,17 @@ export default function FavoriteScreen () {
               SetData({markers});         
     };
 
-    //userData()
-
+    userData()
+    //{data?.markers?.[0].lat}
     return (
         <SafeAreaView>
             <FlatList
-                data={data.markers}
+                data={data}
                 renderItem={({item, index}) => {
+                    console.log(item.markers)
                     return(
                         <Text>
-                            {item.locationname}
+                            {item.markers?.[index].locationname}
                         </Text>
                     );
                 }

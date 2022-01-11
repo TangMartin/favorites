@@ -1,6 +1,6 @@
 import React, { useState, Component, useEffect} from 'react'
 import { useNavigation } from '@react-navigation/core'
-import {  KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ShadowPropTypesIOS, Button, FlatList} from 'react-native'
+import {  KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ShadowPropTypesIOS, Button} from 'react-native'
 import { Icon, Container, Header, Content, Left } from 'native-base'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useIsFocused } from '@react-navigation/native';
@@ -30,16 +30,18 @@ export default function FavoriteScreen () {
               SetData({markers});         
     };
 
-    //userData()
+    userData()
+    console.log(data)
+    //{data?.markers?.[0].lat}
 
     return (
         <SafeAreaView>
             <FlatList
-                data={data.markers}
+                data={data}
                 renderItem={({item, index}) => {
                     return(
                         <Text>
-                            {item.locationname}
+                            {item.markers?.[index].locationname}
                         </Text>
                     );
                 }
