@@ -38,12 +38,12 @@ export default function FavoriteScreen () {
         )
     }
 
-    userData()
+    //userData()
 
     return (
         <SafeAreaView>
             <FlatList
-                data={data?.markers}
+                data={data.markers}
                 ListEmptyComponent={EmptyListMessage}
                 renderItem={({item, index}) => {
                     return(

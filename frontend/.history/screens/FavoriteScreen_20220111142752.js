@@ -30,20 +30,12 @@ export default function FavoriteScreen () {
               SetData({markers});         
     };
 
-    EmptyListMessage = () => {
-        return (
-            <View>
-                <Text> Nothing Here</Text>
-            </View>
-        )
-    }
-
-    userData()
+    //userData()
 
     return (
         <SafeAreaView>
             <FlatList
-                data={data?.markers}
+                data={data.markers}
                 ListEmptyComponent={EmptyListMessage}
                 renderItem={({item, index}) => {
                     return(

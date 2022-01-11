@@ -22,8 +22,6 @@ const SearchScreen = () => {
     // ref
     const bottomSheetRef = useRef(null);
 
-    const [image, setImage] = useState()
-
     // callbacks
     const handleSheetChanges = useCallback((index: number) => {
         console.log('handleSheetChanges', index);
@@ -131,14 +129,6 @@ const SearchScreen = () => {
                             borderRadius: 29,
                             justifyContent: 'center',}}
                         onPress={ () => {
-                            if(typeof(LocData.photos) !== "undefined" )
-                            {
-                                setImage(LocData.photos[0].photo_reference)
-                            }
-                            else
-                            {   
-                                setImage('nothing')
-                            }
                             firestore()
                                 .collection('favoritelist')
                                 .doc(user.uid)
@@ -149,7 +139,7 @@ const SearchScreen = () => {
                                     lat: LocData.geometry.location['lat'],
                                     lng: LocData.geometry.location['lng'],
                                     testcoordinate: "lattitude:" + LocData.geometry.location['lat'] + ", longtitude:" + LocData.geometry.location['lng'],
-                                    image: image,
+                                    image: LocData?.photos?.[0].photo_reference,
                                     types: LocData.types,
                                     createdAt: firestore.FieldValue.serverTimestamp(),
                                 })

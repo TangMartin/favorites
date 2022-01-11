@@ -38,7 +38,7 @@ export default function FavoriteScreen () {
         )
     }
 
-    userData()
+    //userData()
 
     return (
         <SafeAreaView>

@@ -131,7 +131,7 @@ const SearchScreen = () => {
                             borderRadius: 29,
                             justifyContent: 'center',}}
                         onPress={ () => {
-                            if(typeof(LocData.photos) !== "undefined" )
+                            if(LocData.photos != "undefined")
                             {
                                 setImage(LocData.photos[0].photo_reference)
                             }

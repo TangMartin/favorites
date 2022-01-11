@@ -30,15 +30,9 @@ export default function FavoriteScreen () {
               SetData({markers});         
     };
 
-    EmptyListMessage = () => {
-        return (
-            <View>
-                <Text> Nothing Here</Text>
-            </View>
-        )
-    }
+ 
 
-    userData()
+    //userData()
 
     return (
         <SafeAreaView>

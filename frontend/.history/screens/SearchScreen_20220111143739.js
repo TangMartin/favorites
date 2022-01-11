@@ -22,7 +22,7 @@ const SearchScreen = () => {
     // ref
     const bottomSheetRef = useRef(null);
 
-    const [image, setImage] = useState()
+    const [image, SetImage] = useState()
 
     // callbacks
     const handleSheetChanges = useCallback((index: number) => {
@@ -131,13 +131,13 @@ const SearchScreen = () => {
                             borderRadius: 29,
                             justifyContent: 'center',}}
                         onPress={ () => {
-                            if(typeof(LocData.photos) !== "undefined" )
+                            if(LocData.photos != "undefined")
                             {
-                                setImage(LocData.photos[0].photo_reference)
+                                setState('nothing')
                             }
                             else
                             {   
-                                setImage('nothing')
+                                setState(LocData?.photos?.[0].photo_reference)
                             }
                             firestore()
                                 .collection('favoritelist')
