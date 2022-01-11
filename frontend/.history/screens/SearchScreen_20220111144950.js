@@ -22,7 +22,7 @@ const SearchScreen = () => {
     // ref
     const bottomSheetRef = useRef(null);
 
-    const [image, setImage] = useState('')
+    const [image, setImage] = useState()
 
     // callbacks
     const handleSheetChanges = useCallback((index: number) => {
@@ -131,7 +131,7 @@ const SearchScreen = () => {
                             borderRadius: 29,
                             justifyContent: 'center',}}
                         onPress={ () => {
-                            if(typeof(LocData.photos) !== "undefined")
+                            if(typeof(LocData.photos) !== "undefined" )
                             {
                                 setImage(LocData.photos[0].photo_reference)
                             }
@@ -143,7 +143,7 @@ const SearchScreen = () => {
                                 .collection('favoritelist')
                                 .doc(user.uid)
                                 .collection(user.uid)
-                                .add({
+                                .set({
                                     locationid: LocData.reference,
                                     locationname: LocData.name,
                                     lat: LocData.geometry.location['lat'],

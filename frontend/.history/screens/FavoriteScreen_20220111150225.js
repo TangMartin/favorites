@@ -26,6 +26,7 @@ export default function FavoriteScreen () {
             .collection('favoritelist')
             .doc(user.uid)
             .collection(user.uid).get()
+            .where(fake, '!=', 'fake')
               .then(querySnapshot => {
                 querySnapshot.docs.forEach(doc => {
                 markers.push(doc.data());

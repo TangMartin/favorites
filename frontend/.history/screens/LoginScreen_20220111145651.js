@@ -26,7 +26,6 @@ const LoginScreen = () => {
                         lat: 37.782822,
                         lng: -122.4067605,
                         types: 'test', */
-                        fake: 1,
                         createdAt: firestore.FieldValue.serverTimestamp(),
                     })
                 })   

@@ -22,7 +22,7 @@ const SearchScreen = () => {
     // ref
     const bottomSheetRef = useRef(null);
 
-    const [image, setImage] = useState('')
+    const [image, setImage] = useState()
 
     // callbacks
     const handleSheetChanges = useCallback((index: number) => {

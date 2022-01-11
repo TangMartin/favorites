@@ -22,10 +22,7 @@ export default function FavoriteScreen () {
         var userRef = firestore().collection('favoritelist').doc(user.uid).collection(user.uid);
         
         const markers = [];
-            await firestore()
-            .collection('favoritelist')
-            .doc(user.uid)
-            .collection(user.uid).get()
+            await firestore().collection('favoritelist').doc(user.uid).collection(user.uid).get()
               .then(querySnapshot => {
                 querySnapshot.docs.forEach(doc => {
                 markers.push(doc.data());
