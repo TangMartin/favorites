@@ -67,6 +67,8 @@ export default class HomeScreen extends Component {
       }
 
     render( ) {
+      
+        const mapRegion = {latitude: 	37.782822, longitude: -122.4067605}
 
         return (
             <MapView

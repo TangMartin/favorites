@@ -67,6 +67,9 @@ export default class HomeScreen extends Component {
       }
 
     render( ) {
+        console.log(this.state.markers?.[1].locationname);
+
+        const mapRegion = {latitude: 	37.782822, longitude: -122.4067605}
 
         return (
             <MapView
@@ -80,9 +83,12 @@ export default class HomeScreen extends Component {
                 initialRegion={this.state.region}
             >
             {this.state.markers?.map((marker, index) => (
+              console.log(index),
+              console.log("latitude:" + marker.lat + ", longtitude:" + marker.lng),
+
               <Marker
                 key={index}
-                coordinate={{latitude : marker.lat, longitude : marker.lng}}
+                coordinate={{latitude : marker.lat, longtitude : marker.lng}}
                 title={marker.locationname}
               />
 
