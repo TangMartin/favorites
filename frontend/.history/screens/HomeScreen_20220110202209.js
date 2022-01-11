@@ -20,12 +20,39 @@ import Geolocation from '@react-native-community/geolocation';
 import GetLocation from 'react-native-get-location'
 
 
-
 export default class HomeScreen extends Component {
 
       state = {
         regionSet: false,
       }
+
+      
+
+      componentDidMount() {
+        Geolocation.getCurrentPosition(position => {
+          const { latitude, longitude } = position.coords
+          const region = {
+            ...this.state.region,
+            latitude,
+            longitude,
+            latitudeDelta: 0.008,
+            longitudeDelta: 0.008,
+          }
+          this.setState({ region, regionSet: true })
+        })
+
+        
+
+      }
+      
+      onRegionChange = (region) => {
+        if (!this.state.regionSet) return;
+        this.setState({
+          region
+        });
+      }
+
+    render( ) {
 
       userData = async () => {
         const user = auth().currentUser;
@@ -43,31 +70,8 @@ export default class HomeScreen extends Component {
               //console.log(this.state.markers[0].lat) 
               
         };
-
-      componentDidMount() {
-        Geolocation.getCurrentPosition(position => {
-          const { latitude, longitude } = position.coords
-          const region = {
-            ...this.state.region,
-            latitude,
-            longitude,
-            latitudeDelta: 0.008,
-            longitudeDelta: 0.008,
-          }
-          this.setState({ region, regionSet: true })
-        })
-        this.userData()
-      }
-      
-      onRegionChange = (region) => {
-        if (!this.state.regionSet) return;
-        this.setState({
-          region
-        });
-      }
-
-    render( ) {
-        console.log(this.state.markers?.[1].locationname);
+        userData();
+        console.log(this.state.markers);
 
         const mapRegion = {latitude: 	37.782822, longitude: -122.4067605}
 

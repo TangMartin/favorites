@@ -56,7 +56,6 @@ export default class HomeScreen extends Component {
           }
           this.setState({ region, regionSet: true })
         })
-        this.userData()
       }
       
       onRegionChange = (region) => {
@@ -67,7 +66,7 @@ export default class HomeScreen extends Component {
       }
 
     render( ) {
-        console.log(this.state.markers?.[1].locationname);
+        console.log(this.state);
 
         const mapRegion = {latitude: 	37.782822, longitude: -122.4067605}
 

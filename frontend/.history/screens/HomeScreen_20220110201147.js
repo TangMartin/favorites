@@ -20,29 +20,13 @@ import Geolocation from '@react-native-community/geolocation';
 import GetLocation from 'react-native-get-location'
 
 
-
 export default class HomeScreen extends Component {
 
       state = {
         regionSet: false,
       }
 
-      userData = async () => {
-        const user = auth().currentUser;
-        var userRef = firestore().collection('favoritelist').doc(user.uid).collection(user.uid);
-        
-        const markers = [];
-            await firestore().collection('favoritelist').doc(user.uid).collection(user.uid).get()
-              .then(querySnapshot => {
-                querySnapshot.docs.forEach(doc => {
-                markers.push(doc.data());
-              });});
-              this.setState({markers});
-              
-              //console.log(this.state.markers)
-              //console.log(this.state.markers[0].lat) 
-              
-        };
+      
 
       componentDidMount() {
         Geolocation.getCurrentPosition(position => {
@@ -56,7 +40,22 @@ export default class HomeScreen extends Component {
           }
           this.setState({ region, regionSet: true })
         })
-        this.userData()
+
+        userData = async () => {
+          const user = auth().currentUser;
+          var userRef = firestore().collection('favoritelist').doc(user.uid).collection(user.uid);
+          
+          const markers = [];
+              await firestore().collection('favoritelist').doc(user.uid).collection(user.uid).get()
+                .then(querySnapshot => {
+                  querySnapshot.docs.forEach(doc => {
+                  markers.push(doc.data());
+                });});
+                this.setState({markers});
+                //console.log(this.state.markers)
+                //console.log(this.state.markers[0].lat) 
+                
+          };
       }
       
       onRegionChange = (region) => {
@@ -67,9 +66,10 @@ export default class HomeScreen extends Component {
       }
 
     render( ) {
-        console.log(this.state.markers?.[1].locationname);
 
+        userData()
         const mapRegion = {latitude: 	37.782822, longitude: -122.4067605}
+        console.log(this.state.markers[0].locationname)
 
         return (
             <MapView

@@ -26,8 +26,8 @@ export default class HomeScreen extends Component {
       state = {
         regionSet: false,
       }
-
-      userData = async () => {
+/*
+      userData = async (marker) => {
         const user = auth().currentUser;
         var userRef = firestore().collection('favoritelist').doc(user.uid).collection(user.uid);
         
@@ -43,6 +43,7 @@ export default class HomeScreen extends Component {
               //console.log(this.state.markers[0].lat) 
               
         };
+*/
 
       componentDidMount() {
         Geolocation.getCurrentPosition(position => {
@@ -56,7 +57,6 @@ export default class HomeScreen extends Component {
           }
           this.setState({ region, regionSet: true })
         })
-        this.userData()
       }
       
       onRegionChange = (region) => {
@@ -67,7 +67,7 @@ export default class HomeScreen extends Component {
       }
 
     render( ) {
-        console.log(this.state.markers?.[1].locationname);
+        console.log(this.state.region?.latitude);
 
         const mapRegion = {latitude: 	37.782822, longitude: -122.4067605}
 

@@ -27,6 +27,34 @@ export default class HomeScreen extends Component {
         regionSet: false,
       }
 
+      
+
+      componentDidMount() {
+        Geolocation.getCurrentPosition(position => {
+          const { latitude, longitude } = position.coords
+          const region = {
+            ...this.state.region,
+            latitude,
+            longitude,
+            latitudeDelta: 0.008,
+            longitudeDelta: 0.008,
+          }
+          this.setState({ region, regionSet: true })
+        })
+
+        
+
+      }
+      
+      onRegionChange = (region) => {
+        if (!this.state.regionSet) return;
+        this.setState({
+          region
+        });
+      }
+
+    render( ) {
+
       userData = async () => {
         const user = auth().currentUser;
         var userRef = firestore().collection('favoritelist').doc(user.uid).collection(user.uid);
@@ -44,30 +72,7 @@ export default class HomeScreen extends Component {
               
         };
 
-      componentDidMount() {
-        Geolocation.getCurrentPosition(position => {
-          const { latitude, longitude } = position.coords
-          const region = {
-            ...this.state.region,
-            latitude,
-            longitude,
-            latitudeDelta: 0.008,
-            longitudeDelta: 0.008,
-          }
-          this.setState({ region, regionSet: true })
-        })
-        this.userData()
-      }
-      
-      onRegionChange = (region) => {
-        if (!this.state.regionSet) return;
-        this.setState({
-          region
-        });
-      }
-
-    render( ) {
-        console.log(this.state.markers?.[1].locationname);
+        console.log(this.state);
 
         const mapRegion = {latitude: 	37.782822, longitude: -122.4067605}
 
